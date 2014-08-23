@@ -10,7 +10,7 @@ def pinger(host, sleep=1):
     while running:
 
         cmd = 'ping -c 1 -q {}'.format(host)
-        status, output= subprocess.getstatusoutput(cmd)
+        status, output = subprocess.getstatusoutput(cmd)
 
         if 'rtt min/avg/max/mdev' in output:
             last_line = output.split('\n')[-1]
@@ -25,7 +25,6 @@ def pinger(host, sleep=1):
         with open(fn, 'a') as fp:
             print(status_line)
             fp.write(status_line + '\n')
-
 
 
 def main():
